@@ -1,0 +1,20 @@
+.dashboard-container {
+  background-color: red;
+  padding: 20px;
+  border-radius: 8px;
+
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.dashboard-container button {
+  background-color: #d9534f;
+  color: #fff;
+  border: none;
+  padding: 10px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.dashboard-container button:hover {
+  background-color: #c9302c;
+}

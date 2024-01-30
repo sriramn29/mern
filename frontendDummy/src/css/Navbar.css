@@ -1,0 +1,12 @@
+.nav-bar{
+    display: flex;
+    list-style-type: none;
+    justify-content: space-between;
+    background-color: aqua;
+    padding: 15px;
+    
+}
+
+.link{
+    text-decoration: none;
+}
