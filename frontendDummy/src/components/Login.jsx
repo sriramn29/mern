@@ -5,17 +5,17 @@ import axios from 'axios';
 function LoginForm(props) {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [errorMessage, setErrorMessage] = useState('');
+  const [responseMessage, setResponseMessage] = useState('');
   let navigate = useNavigate();
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-    const res = await axios.post("http://localhost:8000/login",{user_email:email,user_password:password})
+    const res = await axios.post("http://localhost:3001/login",{email:email,password:password})
     console.log(res.data)
     if (res.data.loggedIn === true){
         navigate("/dashboard")
     }
-    setErrorMessage('Login up successful!');
+    setResponseMessage('Login up successful!');
   }
   return (
     <form onSubmit={handleSubmit}>
@@ -41,7 +41,7 @@ function LoginForm(props) {
         />
       </div>
       <button type="submit">Login</button>
-      <p className="error-message">{errorMessage}</p>
+      <p className="error-message">{responseMessage}</p>
     </form>
   );
 }

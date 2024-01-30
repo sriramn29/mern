@@ -52,6 +52,25 @@ app.post("/signup",(req, res) => {
     } catch (error) {
         
     }
+});
+
+app.post("/login",async (req,res) => {
+    //console.log(req.body)
+    const {email,password} = req.body
+    //console.log(email,password)
+    const existingUser =await(User.findOne({email:email}))
+    console.log(existingUser)
+    if (existingUser){
+        if (password === existingUser.password){
+            return res.json({loggedIn:true,message:"Login Successful"})
+        }
+        else {
+            return res.json({loggedIn:false,message:"Invalid Cred"})
+        }
+    }
+    else{
+        return res.json({loggedIn:false,message:"Nosuch email present"})
+    }
 })
 app.listen(3001)
 console.log("Backend Started!!!")
